@@ -40,14 +40,15 @@ systemctl enable kubelet
 systemctl start kubelet
 
 echo ".........----------------#################._.-.-KUBERNETES-.-._.#################----------------........."
-rm /root/.kube/config
+rm ~/.kube
 kubeadm reset -f
 
 # uncomment below line if your host doesnt have minimum requirement of 2 CPU
 # kubeadm init --kubernetes-version=${KUBE_VERSION} --ignore-preflight-errors=NumCPU --skip-token-print
 kubeadm init --kubernetes-version=${KUBE_VERSION} --skip-token-print
 
-mkdir -p ~/.kube
+mkdir -p ~/.kube && cd ~/.kube
+touch config
 sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
 
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
