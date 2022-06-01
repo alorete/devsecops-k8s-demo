@@ -26,6 +26,7 @@ metadata:
   labels:
     app: devsecops
   name: devsecops-svc
+  namespace: default
 spec:
   ports:
   - port: 8080
