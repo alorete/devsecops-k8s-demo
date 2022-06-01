@@ -81,8 +81,6 @@ nvironment {
       }
     }
 
-  }
-
 post {
     always {
       junit 'target/surefire-reports/*.xml'
@@ -99,5 +97,5 @@ post {
     // failure {
 
     // }
-
+}
 }
