@@ -1,7 +1,7 @@
 pipeline {
   agent any
 
-nvironment {
+environment {
     deploymentName = "devsecops"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
