@@ -9,6 +9,7 @@ nvironment {
     applicationURL = "http://aml-devsecops.eastus.cloudapp.azure.com/"
     applicationURI = "/increment/99"
   }
+
   stages {
 
     stage('Build Artifact - Maven') {
@@ -80,7 +81,7 @@ nvironment {
         }
       }
     }
-
+  }
 post {
     always {
       junit 'target/surefire-reports/*.xml'
@@ -98,4 +99,5 @@ post {
 
     // }
 }
+  
 }
