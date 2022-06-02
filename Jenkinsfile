@@ -6,7 +6,7 @@ environment {
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
     imageName = "alorete/numeric-app:${GIT_COMMIT}"
-    applicationURL = "http://aml-devsecops.eastus.cloudapp.azure.com/"
+    applicationURL = "http://localhost:8080/v3/api-docs"
     applicationURI = "/increment/99"
   }
 
