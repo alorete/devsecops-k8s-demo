@@ -12,14 +12,14 @@ environment {
 
   stages {
 
-    stage('Build Artifact - Maven') {
+    /* stage('Build Artifact - Maven') {
       steps {
         sh "mvn clean package -DskipTests=true"
         archive 'target/*.jar'
       }
-    }
+    } */
 
-    stage('Unit Tests - JUnit and JaCoCo') {
+    /* stage('Unit Tests - JUnit and JaCoCo') {
       steps {
         sh "mvn test"
       }
@@ -29,9 +29,9 @@ environment {
           jacoco execPattern: 'target/jacoco.exec'
         }
       }
-    }
+    } */
 
-    stage('Mutation Tests - PIT') {
+    /* stage('Mutation Tests - PIT') {
       steps {
         sh "mvn org.pitest:pitest-maven:mutationCoverage"
       }
@@ -40,8 +40,8 @@ environment {
           pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
         }
       }
-    }
-
+    } */
+    
     /* stage('SonarQube - SAST') {
       steps {
         withSonarQubeEnv('SonarQube') {
@@ -55,7 +55,7 @@ environment {
       }
     } */
 
-    stage('Docker Build and Push') {
+    /* stage('Docker Build and Push') {
       steps {
         withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
           sh 'printenv'
@@ -63,15 +63,15 @@ environment {
           sh 'docker push alorete76/numeric-app:""$GIT_COMMIT""'
         }
       }
-    }
+    } */
 
-     stage('Kubernetes Deployment - DEV') {
+     /* stage('Kubernetes Deployment - DEV') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
           sh "sed -i 'alorete76/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
         }
       }
-    } 
+    }  */
 
     stage('OWASP ZAP - DAST') {
       steps {
